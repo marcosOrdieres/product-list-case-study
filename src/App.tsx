@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Papa from 'papaparse';
+import Container from './Components/Container';
+import SearchBar from './Components/SearchBar';
+
+export type ProductType = {
+  additional_image_link: string[] | string | null,
+  gender: string | null,
+  gtin: string | null,
+  image_link: string | null,
+  price: string | null,
+  sale_price: string | null,
+  title: string
+}
 
 function App() {
+  const [rows, setRows] = useState<any>([]);
+
+  useEffect(() => {
+    Papa.parse("/products.csv", {
+      download: true,
+      header: true,
+      complete: productData => {
+        setRows(productData?.data);
+      }
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <p>Search Product</p>
+      <SearchBar onChangeText={() => console.log('onChangeText')} />
+    </Container>
   );
 }
 
