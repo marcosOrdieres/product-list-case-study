@@ -10,6 +10,8 @@ const MainLayoutStyled = styled.div`
   width: 100vw;
   height: 100vh;
   align-items: center;
+  padding-bottom:50px;
+  margin-bottom:50px;
 `;
 
 export const MainLayout: React.FC<MainLayoutProps> = (props) => <MainLayoutStyled {...props}>{props.children}</MainLayoutStyled>;

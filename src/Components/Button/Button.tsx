@@ -20,15 +20,15 @@ const Text = styled.span`
   margin: 5px 5px 0 0;
 `;
 
-const Button = ({ onClick, text }: any) => (
+export interface ButtonProps {
+  onClick: any,
+  text: string
+}
+
+const Button = ({ onClick, text }: ButtonProps) => (
   <ButtonStyled className="button" onClick={onClick}>
     <Text>{text}</Text>
   </ButtonStyled>
 );
-
-Button.propTypes = {
-  onClick: PropTypes.func,
-  text: PropTypes.string
-};
 
 export default Button;

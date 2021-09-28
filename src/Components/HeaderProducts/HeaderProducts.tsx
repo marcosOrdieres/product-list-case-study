@@ -27,9 +27,13 @@ const Row = styled.div`
   margin-right: 10px;
 `;
 
-const HeaderProducts = ({ headerProducts }: any) => (
+export interface HeaderProductsProps {
+  headerProducts?: string[],
+};
+
+const HeaderProducts = ({ headerProducts }: HeaderProductsProps) => (
   <Container>
-    {headerProducts.map((header: string, index: number) => (
+    {headerProducts?.map((header: string, index: number) => (
       <Column noVerticalLine={index === 0 ? true : false}>
         <Row>{header}</Row>
       </Column>

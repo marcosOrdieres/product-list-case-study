@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { ProductType } from '../../Pages/ProductsScreen/ProductsScreen';
 
 export interface ColumnProps {
   noVerticalLine?: boolean,
+  bottomLine?: boolean,
 };
 
 export interface MainImageContainerProps {
@@ -22,6 +24,8 @@ const Column = styled.div<ColumnProps>`
   justify-content: center;
   flex:1;
   border-left:${(props) => props.noVerticalLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
+  border-bottom:${(props) => !props.bottomLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
+
 `;
 
 const Row = styled.div`
@@ -50,36 +54,41 @@ const MainImageContainer = styled.div<MainImageContainerProps>`
   padding:${(props) => props.padding ? '10px' : null};
 `;
 
+export interface ProductItemProps {
+  product?: ProductType,
+};
+
 const ProductItem = ({ product }: any) => {
+
   const [additionalPhotosOpen, setAdditionalPhotosOpen] = useState<boolean>(false)
   return (
     <>
       <Container onClick={() => setAdditionalPhotosOpen(!additionalPhotosOpen)}>
-        <Column noVerticalLine>
+
+        <Column noVerticalLine bottomLine={additionalPhotosOpen}>
           <Row>{product.title}</Row>
         </Column>
 
-        <Column>
+        <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.gtin}</Row>
         </Column>
 
-        <Column>
+        <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.gender}</Row>
         </Column>
 
-        <Column>
+        <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.price}</Row>
         </Column>
-        <Column>
+        <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.sale_price}</Row>
         </Column>
 
-        <Column>
+        <Column bottomLine={additionalPhotosOpen}>
           <MainImageContainer>
             <Image src={product.image_link} />
           </MainImageContainer>
         </Column>
-
       </Container>
 
       {additionalPhotosOpen && (
@@ -90,7 +99,7 @@ const ProductItem = ({ product }: any) => {
 
           <Container>
             <Column noVerticalLine>
-              {product.additional_image_link.split(',').map((value: any, index: number) => (
+              {product.additional_image_link.split(',').map((value: string) => (
                 <MainImageContainer padding>
                   <Image src={value} />
                 </MainImageContainer>
@@ -99,8 +108,6 @@ const ProductItem = ({ product }: any) => {
           </Container>
         </>
       )}
-
-
     </>
   )
 };
