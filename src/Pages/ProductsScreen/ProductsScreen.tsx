@@ -6,6 +6,7 @@ import HeaderProducts from '../../Components/HeaderProducts';
 import CardList from '../../Components/CardList';
 import ProductItem from '../../Components/ProductItem';
 import { mockedProductsObject } from '../../products';
+import Button from '../../Components/Button';
 
 export type ProductType = {
   additional_image_link: string[] | string | null,
@@ -22,7 +23,13 @@ const headerProducts = ['title', 'id', 'gender', 'price', 'sale price', 'image']
 
 export const ProductsScreen = () => {
   const [rows, setRows] = useState<any>([]);
+  const [numberOfEntries, setNumberOfEntries] = useState(10);
+
   const [mockedProducts, setMockedProductsObject] = useState<any>(mockedProductsObject);
+
+  // const transactionsEntriesFiltered = transactions.filter(
+  //   transaction => transaction.id <= numberOfEntries
+  // );
 
   const searchText = (text: string) => {
     setMockedProductsObject(
@@ -35,7 +42,7 @@ export const ProductsScreen = () => {
       download: true,
       header: true,
       complete: productData => {
-        setRows(productData?.data);
+        setRows(productData?.data.slice(0, 99));
       }
     });
   }, []);
@@ -47,7 +54,7 @@ export const ProductsScreen = () => {
         <SearchBar onChangeText={(text: string) => searchText(text.toLowerCase())} />
         <HeaderProducts headerProducts={headerProducts} />
       </div>
-      {mockedProducts.map((product: any) => {
+      {rows.map((product: any) => {
         return (
           <React.Fragment key={product.gtin}>
             <CardList.Container key={product.gtin}>
@@ -59,6 +66,11 @@ export const ProductsScreen = () => {
 
         );
       })}
+
+      <Button
+        text="Load More"
+        onClick={() => setNumberOfEntries(numberOfEntries + 10)}
+      />
     </MainLayout>
   );
 };

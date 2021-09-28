@@ -20,7 +20,7 @@ const Column = styled.div<ColumnProps>`
   border-left:${(props) => props.noVerticalLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
   border-bottom:1px solid rgba(12, 15, 20, 0.3);
   border-top:1px solid rgba(12, 15, 20, 0.3);
-  background-color:white;
+  background-color:#3399ff;
 `;
 
 const Row = styled.div`
