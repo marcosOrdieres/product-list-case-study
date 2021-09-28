@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  width:1500px
+  width:1500px;
+  height:50px;
 `;
 
 export interface ColumnProps {
@@ -17,6 +18,9 @@ const Column = styled.div<ColumnProps>`
   justify-content: center;
   flex:1;
   border-left:${(props) => props.noVerticalLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
+  border-bottom:1px solid rgba(12, 15, 20, 0.3);
+  border-top:1px solid rgba(12, 15, 20, 0.3);
+  background-color:white;
 `;
 
 const Row = styled.div`
