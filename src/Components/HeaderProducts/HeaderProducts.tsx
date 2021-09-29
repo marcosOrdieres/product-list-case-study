@@ -34,7 +34,7 @@ export interface HeaderProductsProps {
 const HeaderProducts = ({ headerProducts }: HeaderProductsProps) => (
   <Container>
     {headerProducts?.map((header: string, index: number) => (
-      <Column noVerticalLine={index === 0 ? true : false}>
+      <Column noVerticalLine={index === 0 ? true : false} key={index}>
         <Row>{header}</Row>
       </Column>
     ))}

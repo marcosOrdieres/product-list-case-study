@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card List Items should render matching default styles 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBQB bujJht"
+  >
+    1
+  </div>
+  <div
+    class="sc-bdfBQB bujJht"
+  >
+    2
+  </div>
+  <div
+    class="sc-bdfBQB bujJht"
+  >
+    3
+  </div>
+</DocumentFragment>
+`;

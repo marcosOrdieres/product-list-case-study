@@ -1,13 +1,13 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 
-import SearchBar from './SearchBar';
+import Button from './Button';
 
-describe('SearchBar', () => {
+describe('Button', () => {
   it('should render and match styles', () => {
     const { asFragment } = render(
-      <SearchBar onChangeText={() => 'value'}>SearchBar</SearchBar>
+      <Button onClick={() => 'value'} text='Text' />
     );
-
     expect(asFragment()).toMatchSnapshot();
   });
 });

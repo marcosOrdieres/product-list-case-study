@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Papa from 'papaparse';
+
 import MainLayout from '../../Components/MainLayout';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import HeaderProducts from '../../Components/HeaderProducts';
@@ -7,29 +8,20 @@ import CardList from '../../Components/CardList';
 import ProductItem from '../../Components/ProductItem';
 import Button from '../../Components/Button';
 import { StickyContainer } from '../../Components/StickyContainer/StickyContainer';
-
-export type ProductType = {
-  additional_image_link: string[],
-  gender: string | null,
-  gtin: string | null,
-  image_link: string | null,
-  price: string | null,
-  sale_price: string | null,
-  title: string
-}
+import { ProductType } from '../../interfaces/Product.interface';
 
 const headerProducts = ['title', 'id', 'gender', 'price', 'sale price', 'image']
 
 export const ProductsScreen = () => {
-  const [rows, setRows] = useState<any>([]);
-  const [searchedRows, setSearchedRows] = useState<any>([]);
+  const [productRows, setProductRows] = useState<ProductType[]>([]);
+  const [searchedRows, setSearchedRows] = useState<ProductType[]>([]);
   const [numberOfEntries, setNumberOfEntries] = useState<number>(100);
 
   const searchText = (text: string) => {
     parseCsvToJsonSearch()
     if (text) {
-      setRows(
-        searchedRows.filter((product: any) => product.title.toLowerCase().includes(text))
+      setProductRows(
+        searchedRows.filter((product: ProductType) => product.title.toLowerCase().includes(text))
       )
     }
   };
@@ -39,7 +31,7 @@ export const ProductsScreen = () => {
       download: true,
       header: true,
       complete: productData => {
-        setRows(productData?.data.slice(0, numberOfEntries));
+        setProductRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
       }
     });
   }, [numberOfEntries]);
@@ -49,7 +41,7 @@ export const ProductsScreen = () => {
       download: true,
       header: true,
       complete: productData => {
-        setSearchedRows(productData?.data.slice(0, numberOfEntries));
+        setSearchedRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
       }
     });
   };
@@ -65,12 +57,11 @@ export const ProductsScreen = () => {
         <SearchBar onChangeText={(text: string) => searchText(text.toLowerCase())} />
         <HeaderProducts headerProducts={headerProducts} />
       </StickyContainer>
-      {rows?.map((product: ProductType, index: number) => {
-        console.log('dsdsd', index + 1)
+      {productRows?.map((product: ProductType) => {
         return (
           <React.Fragment key={product.gtin}>
-            <CardList.Container key={product.gtin}>
-              <CardList.Item key={product.gtin}>
+            <CardList.Container>
+              <CardList.Item>
                 <ProductItem product={product} />
               </CardList.Item>
             </CardList.Container>

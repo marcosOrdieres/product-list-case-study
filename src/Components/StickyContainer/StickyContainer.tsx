@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export interface StickyContainerProps {
-  children?: any;
+  children?: JSX.Element[];
 }
 
 const StickyContainerStyled = styled.div`

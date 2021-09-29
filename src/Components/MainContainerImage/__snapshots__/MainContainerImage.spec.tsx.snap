@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContainerImage should render MainContainerImage and match styles 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBQB kjmAOv"
+  >
+    <img
+      class="sc-gsTEea kWaMru"
+      src=""
+    />
+  </div>
+</DocumentFragment>
+`;

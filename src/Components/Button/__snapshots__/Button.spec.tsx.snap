@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render and match styles 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBQB bLeCNO button"
+  >
+    <span
+      class="sc-gsTEea fRRtOn"
+    >
+      Text
+    </span>
+  </div>
+</DocumentFragment>
+`;

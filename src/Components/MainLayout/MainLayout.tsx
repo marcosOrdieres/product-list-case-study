@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export interface MainLayoutProps {
-  children?: any;
+  children?: JSX.Element;
 }
 
 const MainLayoutStyled = styled.div`

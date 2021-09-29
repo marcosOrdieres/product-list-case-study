@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export interface ContainerProps {
-  children?: any;
+  children?: JSX.Element;
 }
 
 const ContainerStyled = styled.div`

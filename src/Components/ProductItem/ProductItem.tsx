@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ProductType } from '../../Pages/ProductsScreen/ProductsScreen';
+import { ProductType } from '../../interfaces/Product.interface';
+import MainImageContainer from '../MainContainerImage/MainContainerImage';
+import Image from '../Image/Image';
 
 export interface ColumnProps {
   noVerticalLine?: boolean,
   bottomLine?: boolean,
-};
-
-export interface MainImageContainerProps {
-  padding?: boolean,
 };
 
 const Container = styled.div`
@@ -25,7 +23,6 @@ const Column = styled.div<ColumnProps>`
   flex:1;
   border-left:${(props) => props.noVerticalLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
   border-bottom:${(props) => !props.bottomLine ? null : '1px solid rgba(12, 15, 20, 0.3)'};
-
 `;
 
 const Row = styled.div`
@@ -36,22 +33,6 @@ const Center = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const MainImageContainer = styled.div<MainImageContainerProps>`
-  display: flex;
-  width:100px;
-  height: 100px;
-  background-color:  'white';
-  align-items: center;
-  justify-content: center;
-  padding:${(props) => props.padding ? '10px' : null};
 `;
 
 export interface ProductItemProps {

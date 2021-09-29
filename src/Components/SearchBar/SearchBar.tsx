@@ -48,7 +48,7 @@ const SearchBar = (props: SearchBarProps) => (
     <StyledInput className={'inputIcon'}>
       <Input
         type="text"
-        onChange={(event: any) => props.onChangeText(event.target.value)}
+        onChange={(event: { target: HTMLInputElement }) => props.onChangeText(event.target.value)}
         placeholder="Search"
       />
       <svg
