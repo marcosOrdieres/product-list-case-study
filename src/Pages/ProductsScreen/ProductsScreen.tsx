@@ -20,10 +20,10 @@ export const ProductsScreen = () => {
   const [searchedRows, setSearchedRows] = useState<ProductType[]>([]);
   const [numberOfEntries, setNumberOfEntries] = useState<number>(100);
 
-  const [checked, setChecked] = useState<boolean>(true);
+  const [checked, setChecked] = useState<boolean>(false);
 
   const searchByText = (text: string) => {
-    parseCsvToJsonSearch()
+    parseCsvToJson('search')
     if (text) {
       setProductRows(
         searchedRows.filter((product: ProductType) => product.title.toLowerCase().includes(text))
@@ -32,47 +32,46 @@ export const ProductsScreen = () => {
   };
 
   const searchByGender = (event: any) => {
-    parseCsvToJsonSearch()
     setProductRows(
       searchedRows.filter((product: ProductType) => product.gender === event.target.value)
     )
+    parseCsvToJson('search')
   };
 
-
   const searchBySales = () => {
-    setChecked(!checked)
-    if (checked) {
-      parseCsvToJsonSearch()
+    if (!checked) {
+      parseCsvToJson('search')
       setProductRows(
         searchedRows.filter((product: ProductType) => product?.sale_price < product?.price)
       )
+      setChecked(true)
     } else {
-      parseCsvToJsonSearch()
+      parseCsvToJson('search')
+      setProductRows(searchedRows)
+      setChecked(false)
     }
   };
 
-  const parseCsvToJson = useCallback(() => {
+  const parseCsvToJson = useCallback((type: string) => {
     Papa.parse("/products.csv", {
       download: true,
       header: true,
       complete: productData => {
-        setProductRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
+        if (type === 'global') {
+          setProductRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
+        } else {
+          setSearchedRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
+        }
       }
     });
   }, [numberOfEntries]);
 
-  const parseCsvToJsonSearch = () => {
-    Papa.parse("/products.csv", {
-      download: true,
-      header: true,
-      complete: productData => {
-        setSearchedRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
-      }
-    });
-  };
+  useEffect(() => {
+    parseCsvToJson('search')
+  }, [parseCsvToJson]);
 
   useEffect(() => {
-    parseCsvToJson()
+    parseCsvToJson('global')
   }, [numberOfEntries, parseCsvToJson]);
 
   return (
