@@ -32,10 +32,15 @@ export const ProductsScreen = () => {
   };
 
   const searchByGender = (event: any) => {
-    setProductRows(
-      searchedRows.filter((product: ProductType) => product.gender === event.target.value)
-    )
-    parseCsvToJson('search')
+    if (event.target.value === 'Click to see options') {
+      parseCsvToJson('search')
+      setProductRows(searchedRows)
+    } else {
+      setProductRows(
+        searchedRows.filter((product: ProductType) => product.gender === event.target.value)
+      )
+      parseCsvToJson('search')
+    }
   };
 
   const searchBySales = () => {

@@ -12,7 +12,7 @@ export interface ColumnProps {
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  width:1500px;
+  width:90vw;
   cursor:pointer;
 `;
 
