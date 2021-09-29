@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderProducts should render HeaderProducts and match styles 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBQB kbSEAW"
+  >
+    <div
+      class="sc-gsTEea cGjqSJ"
+    >
+      <div
+        class="sc-dlfnuX fplTjL"
+      >
+        first
+      </div>
+    </div>
+    <div
+      class="sc-gsTEea iOKDyu"
+    >
+      <div
+        class="sc-dlfnuX fplTjL"
+      >
+        second
+      </div>
+    </div>
+    <div
+      class="sc-gsTEea iOKDyu"
+    >
+      <div
+        class="sc-dlfnuX fplTjL"
+      >
+        third
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

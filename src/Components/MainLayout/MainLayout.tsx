@@ -8,7 +8,7 @@ const MainLayoutStyled = styled.div`
   display: flex;
   flex-direction:column;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   align-items: center;
   padding-bottom:50px;
   margin-bottom:50px;

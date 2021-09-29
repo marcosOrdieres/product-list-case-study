@@ -10,7 +10,8 @@ const StickyContainerStyled = styled.div`
   flex-direction:column;
   align-items: center;
   top:0;
-  zIndex;1;
+  z-index:1;
+  background-color: white;
 `;
 
 export const StickyContainer: React.FC<StickyContainerProps> = (props) => <StickyContainerStyled {...props}>{props.children}</StickyContainerStyled>;
