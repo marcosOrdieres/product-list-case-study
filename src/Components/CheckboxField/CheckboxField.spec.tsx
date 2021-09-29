@@ -1,13 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import HeaderProducts from './HeaderProducts';
+import CheckboxField from './CheckboxField';
 
-describe('HeaderProducts', () => {
-  it('should render HeaderProducts and match styles', () => {
-    const mockedArray = ['first', 'second', 'third']
+describe('CheckboxField', () => {
+  it('should render CheckboxField and match styles', () => {
     const { asFragment } = render(
-      <HeaderProducts headerProducts={mockedArray} />
+      <CheckboxField textLabel={''} />
     );
     expect(asFragment()).toMatchSnapshot();
   });

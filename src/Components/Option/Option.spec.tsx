@@ -1,13 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import HeaderProducts from './HeaderProducts';
+import Option from './Option';
 
-describe('HeaderProducts', () => {
-  it('should render HeaderProducts and match styles', () => {
-    const mockedArray = ['first', 'second', 'third']
+describe('Option', () => {
+  it('should render Option and match styles', () => {
     const { asFragment } = render(
-      <HeaderProducts headerProducts={mockedArray} />
+      <Option selected={true} value='' />
     );
     expect(asFragment()).toMatchSnapshot();
   });

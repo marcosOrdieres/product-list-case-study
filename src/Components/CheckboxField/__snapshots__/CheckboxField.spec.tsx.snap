@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxField should render CheckboxField and match styles 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBQB boEdTa"
+  >
+    <input
+      class="sc-dlfnuX"
+      type="checkbox"
+    />
+    <label
+      class="sc-gsTEea"
+    />
+  </div>
+</DocumentFragment>
+`;

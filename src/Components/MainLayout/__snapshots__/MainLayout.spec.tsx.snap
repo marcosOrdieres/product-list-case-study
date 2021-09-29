@@ -3,7 +3,7 @@
 exports[`MainLayout should render and match styles 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdfBQB bSpAYh"
+    class="sc-bdfBQB alQAU"
   >
     MainLayout
   </div>

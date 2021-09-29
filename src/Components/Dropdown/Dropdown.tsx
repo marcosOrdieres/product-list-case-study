@@ -16,11 +16,13 @@ export const StyledSelect = styled.select`
 
 export const StyledLabel = styled.label`
   margin-bottom: 1rem;
+  font-size:15px;
+  color:#3399ff
 `;
 
 export interface DropdownProps {
-  formLabel?: any,
-  action?: any,
+  formLabel?: string,
+  action?: string,
   onChange?: any,
   children?: JSX.Element[],
 };

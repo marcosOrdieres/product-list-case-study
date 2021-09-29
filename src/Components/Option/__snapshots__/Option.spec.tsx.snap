@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Option should render Option and match styles 1`] = `
+<DocumentFragment>
+  <option
+    class="sc-bdfBQB fSBjyw"
+  />
+</DocumentFragment>
+`;

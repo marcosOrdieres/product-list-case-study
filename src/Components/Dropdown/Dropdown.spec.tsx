@@ -1,13 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import HeaderProducts from './HeaderProducts';
+import Dropdown from './Dropdown';
 
-describe('HeaderProducts', () => {
-  it('should render HeaderProducts and match styles', () => {
-    const mockedArray = ['first', 'second', 'third']
+describe('Dropdown', () => {
+  it('should render Dropdown and match styles', () => {
     const { asFragment } = render(
-      <HeaderProducts headerProducts={mockedArray} />
+      <Dropdown formLabel='' action='' onChange={() => 'changed'}>
+        <div />
+        <div />
+      </Dropdown>
+
     );
     expect(asFragment()).toMatchSnapshot();
   });

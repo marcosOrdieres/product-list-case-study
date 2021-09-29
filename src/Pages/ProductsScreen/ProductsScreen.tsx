@@ -32,7 +32,7 @@ export const ProductsScreen = () => {
   };
 
   const searchByGender = (event: any) => {
-    if (event.target.value === 'Click to see options') {
+    if (event.target.value === 'All genders') {
       parseCsvToJson('search')
       setProductRows(searchedRows)
     } else {
@@ -81,13 +81,11 @@ export const ProductsScreen = () => {
 
   return (
     <>
-
       <MainLayout>
-
         <StickyContainer>
-          <p>Search Product</p>
-
+          <p style={{ fontSize: 30, color: '#3399ff' }}>Search and Filter Products</p>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-around' }}>
+
             <SearchBar onChangeText={(text: string) => searchByText(text.toLowerCase())} />
 
             <Dropdown
@@ -95,7 +93,7 @@ export const ProductsScreen = () => {
               onChange={searchByGender}
               action="/"
             >
-              <Option selected value="Click to see options" />
+              <Option selected value="All genders" />
               <Option value="male" />
               <Option value="female" />
               <Option value="unisex" />

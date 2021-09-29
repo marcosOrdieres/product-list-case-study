@@ -3,7 +3,7 @@
 exports[`Product Items should match styles 1`] = `
 <DocumentFragment>
   <div
-    class="sc-dlfnuX gjKEHZ"
+    class="sc-dlfnuX gjzKXp"
   >
     <div
       class="sc-hKgJUU fQFrfy"
@@ -27,141 +27,9 @@ exports[`Product Items should match styles 1`] = `
       class="sc-hKgJUU cpXOpV"
     >
       <div
-        class="sc-eCstlR hncgct"
+        class="sc-jSgvzq fLtgJM"
       >
-        binary
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        20
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        20
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-bdfBQB kjmAOv"
-      >
-        <img
-          class="sc-gsTEea kWaMru"
-          src="example.com"
-        />
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Product Items with the case of additionalPhotosOpen = false should match styles 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-dlfnuX gjKEHZ"
-  >
-    <div
-      class="sc-hKgJUU fQFrfy"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        title
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        1
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        binary
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        20
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        20
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-bdfBQB kjmAOv"
-      >
-        <img
-          class="sc-gsTEea kWaMru"
-          src="example.com"
-        />
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Product Items with the case of additionalPhotosOpen = true should match styles 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-dlfnuX gjKEHZ"
-  >
-    <div
-      class="sc-hKgJUU fQFrfy"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        title
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        1
-      </div>
-    </div>
-    <div
-      class="sc-hKgJUU cpXOpV"
-    >
-      <div
-        class="sc-eCstlR hncgct"
-      >
-        binary
+        Error
       </div>
     </div>
     <div

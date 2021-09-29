@@ -29,6 +29,11 @@ const Row = styled.div`
   margin-right: 10px;
 `;
 
+const RowError = styled.div`
+  margin-right: 10px;
+  color:red;
+`;
+
 const Center = styled.div`
   text-align: center;
   align-items: center;
@@ -40,6 +45,8 @@ export interface ProductItemProps {
 };
 
 const ProductItem = ({ product }: any) => {
+
+  const error = 'Error'
 
   const [additionalPhotosOpen, setAdditionalPhotosOpen] = useState<boolean>(false)
   return (
@@ -53,11 +60,13 @@ const ProductItem = ({ product }: any) => {
         <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.gtin}</Row>
         </Column>
-
         <Column bottomLine={additionalPhotosOpen}>
-          <Row>{product.gender}</Row>
+          {product.gender === 'male' || product.gender === 'female' || product.gender === 'unisex' ?
+            <Row>{product.gender}</Row>
+            :
+            <RowError>{error}</RowError>
+          }
         </Column>
-
         <Column bottomLine={additionalPhotosOpen}>
           <Row>{product.price}</Row>
         </Column>
