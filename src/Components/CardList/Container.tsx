@@ -10,7 +10,7 @@ const Container = styled.div`
     rgba(12, 15, 20, 0.6) 0px 2px 2px 0px;
   border-radius: 10px;
   padding: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 Container.displayName = 'CardList.Container';

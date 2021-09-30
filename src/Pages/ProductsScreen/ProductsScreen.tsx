@@ -125,6 +125,8 @@ export const ProductsScreen = () => {
           text="Load More"
           onClick={() => setNumberOfEntries(numberOfEntries + 100)}
         />
+
+        <div style={{ paddingTop: 50, width: '100%' }} />
       </MainLayout>
     </>
   );

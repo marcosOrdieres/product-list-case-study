@@ -6,9 +6,8 @@ const ButtonStyled = styled.div`
   color: white;
   padding-top: 10px;
   background-color: #212933;
-  padding: 4px;
+  padding: 20px;
   border-radius: 5px;
-  height: 50px;
   width: 200px;
   text-align: center;
   margin: 0 auto;
@@ -16,7 +15,6 @@ const ButtonStyled = styled.div`
 
 const Text = styled.span`
   display: inline-block;
-  margin: 5px 5px 0 0;
 `;
 
 export interface ButtonProps {
