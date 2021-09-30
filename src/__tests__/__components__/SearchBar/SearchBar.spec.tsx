@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
-import SearchBar from './SearchBar';
+import SearchBar from '../../../Components/SearchBar';
 
 describe('SearchBar', () => {
   it('should render SearchBar, match styles and change text', () => {

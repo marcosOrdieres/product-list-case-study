@@ -1,17 +1,16 @@
 import { render } from '@testing-library/react';
-import React from 'react';
+import React, { Fragment } from 'react';
+import Item from '../../../Components/CardList/Item';
 
-import Container from './Container';
-import Item from './Item';
 
-describe('Card List Container', () => {
+describe('Card List Items', () => {
   it('should render matching default styles', () => {
     const { asFragment } = render(
-      <Container>
+      <Fragment>
         <Item>1</Item>
         <Item>2</Item>
         <Item>3</Item>
-      </Container>
+      </Fragment>
     );
     expect(asFragment()).toMatchSnapshot();
   });

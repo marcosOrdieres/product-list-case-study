@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-
-import ProductItem from './ProductItem';
+import ProductItem from '../../../Components/ProductItem';
 
 const product = {
   additional_image_link: ['example1.com', 'example2.com', 'example3.com'],

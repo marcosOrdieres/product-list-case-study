@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import MainLayout from '../../../Components/MainLayout';
 
-import MainLayout from './MainLayout';
 
 describe('MainLayout', () => {
   it('should render and match styles', () => {

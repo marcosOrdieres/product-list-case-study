@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render Dropdown and match styles 1`] = `
+<DocumentFragment>
+  <form
+    action=""
+    class="sc-bdfBQB ncswd"
+  >
+    <label
+      class="sc-dlfnuX dbiQCg"
+      for="services"
+    />
+    <select
+      class="sc-gsTEea bCJcBN"
+      id="services"
+      name="services"
+    />
+  </form>
+</DocumentFragment>
+`;
