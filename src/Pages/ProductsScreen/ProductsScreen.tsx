@@ -12,18 +12,21 @@ import { ProductType } from '../../interfaces/Product.interface';
 import Dropdown from '../../Components/Dropdown';
 import Option from '../../Components/Option';
 import CheckboxField from '../../Components/CheckboxField';
+import { useFetchParsed } from '../../hooks/useFetchParsed';
 
-const headerProducts = ['title', 'id', 'gender', 'price', 'sale price', 'image']
+const HEADER_PRODUCTS = ['title', 'id', 'gender', 'price', 'sale price', 'image']
+const ALL_GENDERS = 'All genders'
+const SEARCHED_LIST = 'search'
+export const COMPLETE_LIST = 'complete'
 
 export const ProductsScreen = () => {
-  const [productRows, setProductRows] = useState<ProductType[]>([]);
-  const [searchedRows, setSearchedRows] = useState<ProductType[]>([]);
-  const [numberOfEntries, setNumberOfEntries] = useState<number>(100);
-
   const [checked, setChecked] = useState<boolean>(false);
 
+  const { productRows, searchedRows, numberOfEntries, setProductRows, setNumberOfEntries, parseCsvToJson } =
+    useFetchParsed();
+
   const searchByText = (text: string) => {
-    parseCsvToJson('search')
+    parseCsvToJson(SEARCHED_LIST)
     if (text) {
       setProductRows(
         searchedRows.filter((product: ProductType) => product.title.toLowerCase().includes(text))
@@ -32,51 +35,37 @@ export const ProductsScreen = () => {
   };
 
   const searchByGender = (event: any) => {
-    if (event.target.value === 'All genders') {
-      parseCsvToJson('search')
+    if (event.target.value === ALL_GENDERS) {
+      parseCsvToJson(SEARCHED_LIST)
       setProductRows(searchedRows)
     } else {
       setProductRows(
         searchedRows.filter((product: ProductType) => product.gender === event.target.value)
       )
-      parseCsvToJson('search')
+      parseCsvToJson(SEARCHED_LIST)
     }
   };
 
   const searchBySales = () => {
     if (!checked) {
-      parseCsvToJson('search')
+      parseCsvToJson(SEARCHED_LIST)
       setProductRows(
         searchedRows.filter((product: ProductType) => product?.sale_price < product?.price)
       )
       setChecked(true)
     } else {
-      parseCsvToJson('search')
+      parseCsvToJson(SEARCHED_LIST)
       setProductRows(searchedRows)
       setChecked(false)
     }
   };
 
-  const parseCsvToJson = useCallback((type: string) => {
-    Papa.parse("/products.csv", {
-      download: true,
-      header: true,
-      complete: productData => {
-        if (type === 'global') {
-          setProductRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
-        } else {
-          setSearchedRows(productData?.data.slice(0, numberOfEntries) as ProductType[]);
-        }
-      }
-    });
-  }, [numberOfEntries]);
-
   useEffect(() => {
-    parseCsvToJson('search')
+    parseCsvToJson(SEARCHED_LIST)
   }, [parseCsvToJson]);
 
   useEffect(() => {
-    parseCsvToJson('global')
+    parseCsvToJson(COMPLETE_LIST)
   }, [numberOfEntries, parseCsvToJson]);
 
   return (
@@ -106,7 +95,7 @@ export const ProductsScreen = () => {
             />
           </div>
 
-          <HeaderProducts headerProducts={headerProducts} />
+          <HeaderProducts headerProducts={HEADER_PRODUCTS} />
 
         </StickyContainer>
 
@@ -125,7 +114,6 @@ export const ProductsScreen = () => {
           text="Load More"
           onClick={() => setNumberOfEntries(numberOfEntries + 100)}
         />
-
         <div style={{ paddingTop: 50, width: '100%' }} />
       </MainLayout>
     </>
