@@ -1,4 +1,4 @@
-# Products-list-case-study
+# Products-list-example
 
 ## Description
 
